@@ -115,6 +115,9 @@ class ProductController
 
     public function renderview()
     {
-        include('../');
+        header('Content-Type: text/html; charset=UTF-8');
+        $controllerDir = __DIR__;
+        $viewsDir = $controllerDir . '/../Views/';
+        include $viewsDir . 'call.php';
     }
 }
