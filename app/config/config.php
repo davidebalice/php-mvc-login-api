@@ -4,7 +4,7 @@ return [
     'db_name' => 'api',
     'db_user' => 'root',
     'db_password' => '',
-    'jwt_secret' => 'il_tuo_segreto',
+    'jwt_secret' => 'secret_key',
     'table_prefix' => 'product_',
 ];
 
