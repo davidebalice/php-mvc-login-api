@@ -1,33 +1,34 @@
 <?php
 $ch = curl_init();
 
-$url = "http://tuo_sito.com/api/login.php"; // Sostituisci con l'URL effettivo del tuo server
+$url = "http://localhost/php/apiMvc/products/api/login";
 
-$data = array(
-    'username' => 'utente',
-    'password' => 'password'
-);
+$data = json_encode(array(
+    'username' => 'thomas.anderson',
+    'password' => '12345678'
+));
+
 
 curl_setopt($ch, CURLOPT_URL, $url);
 curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
 curl_setopt($ch, CURLOPT_POST, 1);
 curl_setopt($ch, CURLOPT_POSTFIELDS, $data);
+curl_setopt($ch, CURLOPT_HTTPHEADER, array('Content-Type: application/json'));
 
 $response = curl_exec($ch);
 
 $result = json_decode($response, true);
+
+echo $response."<br /><br />";
 
 $token = $result['token'];
 
 curl_close($ch);
 
 
-/////////////////////////////////////////////////////
 
 
-
-$apiUrl = 'http://tuo_indirizzo_api/api/products';
-$token = 'il_tuo_token_jwt';
+$apiUrl = 'http://localhost/php/apiMvc/products/api/products';
 
 $ch = curl_init();
 
@@ -43,9 +44,8 @@ if (curl_errno($ch)) {
 
 curl_close($ch);
 
-// La risposta contiene i dati ottenuti dalla richiesta API
 $data = json_decode($response, true);
 
-// Esempio: stampa i dati ottenuti
-print_r($data);
+
+echo json_encode($data, JSON_PRETTY_PRINT);
 ?>
