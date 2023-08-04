@@ -1,4 +1,5 @@
 <?php
+include_once('../app/cors.php');
 ini_set('display_errors', 1);
 ini_set('display_startup_errors', 1);
 error_reporting(E_ALL);
@@ -17,10 +18,6 @@ use Auth;
 
 $auth = new Auth($conn, $config['jwt_secret']);
 $controller = new ProductController($conn, $auth);
-
-
-
-
 
 
 handleRequest($controller);
