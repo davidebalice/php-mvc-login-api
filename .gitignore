@@ -19,6 +19,7 @@ yarn-error.log
 /.vscode
 *.env
 *.txt
+/config
 config.php
 config*.*
 *.sql
