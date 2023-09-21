@@ -1,7 +1,7 @@
 <?php
 $ch = curl_init();
 
-$url = "http://localhost/php/apiMvc/products/api/login";
+$url = "https://api-login-php.davidebalice.dev/products/api/login";
 
 $data = json_encode(array(
     'username' => 'thomas.anderson',
@@ -28,7 +28,7 @@ curl_close($ch);
 
 
 
-$apiUrl = 'http://localhost/php/apiMvc/products/api/products';
+$apiUrl = 'https://api-login-php.davidebalice.dev/products/api/products';
 
 $ch = curl_init();
 
@@ -43,6 +43,8 @@ if (curl_errno($ch)) {
 }
 
 curl_close($ch);
+
+echo $response;
 
 $data = json_decode($response, true);
 
