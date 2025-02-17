@@ -14,7 +14,7 @@ class Product
     public function getAllProducts()
     {
         $tableName = TABLE_PREFIX . 'products';
-        $stmt = $this->conn->query("SELECT * FROM $tableName");
+        $stmt = $this->conn->query("SELECT id,name,price,photo FROM $tableName");
         return $stmt->fetchAll(PDO::FETCH_ASSOC);
     }
 

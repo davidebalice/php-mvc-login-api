@@ -30,7 +30,13 @@ class AuthController
         $token = $this->auth->login($username, $password);
 
         if ($token) {
-            echo json_encode(['token' => $token]);
+            $data = [
+                'token' => $token,
+                'server' => 'php',
+            ];
+
+            echo json_encode($data);
+
         } else {
             http_response_code(401);
             echo json_encode(['error' => 'Unauthorized.']);
